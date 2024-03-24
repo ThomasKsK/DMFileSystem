@@ -17,7 +17,7 @@
 const match = data.match(regex);
 if (match) {
     const amount = match[1];
-    document.getElementById('totalSales').textContent = `Total at ${new Date().toLocaleDateString()} : ${amount}€`;
+    document.getElementById('totalSales').textContent = `Total at ${new Date().toLocaleDateString('en-GB')} : ${amount}€`;
 }
 } catch (error) {
       console.error(error);

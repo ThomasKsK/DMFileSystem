@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p id="totalSales"></p>
+</body>
+<script type="module">
+  async function displayTotalSales() {
+    try {
+      const response = await fetch('http://localhost:3000/totals');
+      const data = await response.text();
+      const regex = /:\s*(\d+)/;
+const match = data.match(regex);
+if (match) {
+    const amount = match[1];
+    document.getElementById('totalSales').textContent = `Total at ${new Date().toLocaleDateString()} : ${amount}€`;
+}
+} catch (error) {
+      console.error(error);
+    }
+  }
+  displayTotalSales();
+</script>
+</html>
